@@ -1,4 +1,4 @@
-name: Sync to Hugging Face Space
+name: Deploy to Hugging Face Spaces
 
 on:
   push:
@@ -20,8 +20,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git remote add space "https://user:$HF_TOKEN@huggingface.co/spaces/oepajs0/my-universe-io"
-          git checkout -B main "$GITHUB_SHA"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git remote add space https://user:$HF_TOKEN@huggingface.co/spaces/oepajs0/my-gradio-app1
           git push --force space main
